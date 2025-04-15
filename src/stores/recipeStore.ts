@@ -14,3 +14,8 @@ export const useRecipeStore = defineStore('recipes', () => {
     recipes: recipes.value,
   }
 })
+
+export const useRecipeNames = (): string[] => {
+  const { recipes } = useRecipeStore()
+  return recipes.map((recipe) => recipe.name)
+}
