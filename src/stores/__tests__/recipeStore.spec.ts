@@ -4,7 +4,7 @@ import { createPinia, setActivePinia } from 'pinia'
 
 describe('recipeStore', () => {
   beforeEach(() => {
-    localStorage.clear() // the test shouldn't need to know local storage is being used, but clearing the store in other ways did not work
+    localStorage.clear()
     setActivePinia(createPinia())
   })
 
@@ -18,5 +18,14 @@ describe('recipeStore', () => {
     store.add(recipe('Banana bread'))
 
     expect(store.recipes()).toContainEqual(recipe('Banana bread'))
+  })
+
+  it('clears the store', () => {
+    const store = useRecipeStore()
+
+    store.add(recipe('Banana bread'))
+    store.clear()
+
+    expect(store.recipes()).empty
   })
 })
