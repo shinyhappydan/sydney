@@ -9,11 +9,8 @@ export const useRecipeStore = defineStore('recipes', () => {
     recipes.value.push(recipe)
   }
 
-  const clear = () => (recipes.value = null)
-
   return {
     add,
     recipes: recipes.value,
-    clear,
   }
 })
