@@ -13,10 +13,10 @@ describe('recipeStore', () => {
   }
 
   it('stores and retrieves a recipe', () => {
-    const { add, recipes } = useRecipeStore()
+    const store = useRecipeStore()
 
-    add(recipe('Banana bread'))
+    store.add(recipe('Banana bread'))
 
-    expect(recipes).toContainEqual(recipe('Banana bread'))
+    expect(store.recipes()).toContainEqual(recipe('Banana bread'))
   })
 })
