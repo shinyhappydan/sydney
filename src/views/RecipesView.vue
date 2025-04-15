@@ -3,7 +3,8 @@ import RecipeList from '@/components/RecipeList.vue'
 </script>
 
 <template>
-  <main>
+  <div>
+    <h1>Recipes</h1>
     <RecipeList />
-  </main>
+  </div>
 </template>
