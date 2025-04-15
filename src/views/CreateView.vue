@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
-    <h1>Create a recipe</h1>
-    <form>
+  <div>
+    <h2>Create a recipe</h2>
+    <form >
       <input v-model="name" type="text" placeholder="Name" />
       <button @click="persist">Submit</button>
     </form>
@@ -9,19 +9,14 @@
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
 </style>
 
 <script setup lang="ts">
 import { useRecipeStore } from '@/stores/recipeStore.ts'
 import { ref } from 'vue'
-import router from '@/router'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const { add } = useRecipeStore()
 
