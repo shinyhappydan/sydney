@@ -1,9 +1,6 @@
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
-
-type Recipe = {
-  name: string
-}
+import type { Recipe } from '@/types/recipe.ts'
 
 export const useRecipeStore = defineStore('recipes', () => {
   const recipes = useStorage<Recipe[]>('recipes', [])
@@ -12,7 +9,7 @@ export const useRecipeStore = defineStore('recipes', () => {
     recipes.value.push(recipe)
   }
 
-  const clear = () => recipes.value = null
+  const clear = () => (recipes.value = null)
 
   return {
     add,
