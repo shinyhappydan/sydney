@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useRecipeNames } from '@/stores/recipeStore.ts'
+import { useRecipeStore } from '@/stores/recipeStore.ts'
 
-const recipeNames = useRecipeNames()
+const { recipes } = useRecipeStore()
 </script>
 
 <template>
   <ul>
-    <li v-for="recipeName in recipeNames" v-bind:key="recipeName">
-      {{ recipeName }}
+    <li v-for="recipe in recipes" v-bind:key="recipe.name">
+      {{ recipe.name }}
     </li>
   </ul>
 </template>
