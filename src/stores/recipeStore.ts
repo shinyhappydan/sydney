@@ -3,14 +3,19 @@ import { useStorage } from '@vueuse/core'
 import type { Recipe } from '@/types/recipe.ts'
 
 export const useRecipeStore = defineStore('recipes', () => {
-  const recipes = useStorage<Recipe[]>('recipes', [])
+  const state = useStorage<Recipe[]>('recipes', [])
 
   const add = (recipe: Recipe) => {
-    recipes.value.push(recipe)
+    state.value.push(recipe)
   }
+
+  const recipes = () => state.value
+
+  const clear = () => state.value = []
 
   return {
     add,
-    recipes: recipes.value,
+    recipes,
+    clear,
   }
 })

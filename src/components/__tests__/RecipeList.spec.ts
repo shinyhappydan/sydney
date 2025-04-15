@@ -7,8 +7,8 @@ import { createPinia, setActivePinia } from 'pinia'
 
 describe('RecipeList', () => {
   beforeEach(() => {
-    localStorage.clear() // the test shouldn't need to know local storage is being used, but clearing the store in other ways did not work
     setActivePinia(createPinia())
+    useRecipeStore().clear()
   })
 
   const thereIsARecipe = (name: string) => {
